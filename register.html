@@ -1,0 +1,119 @@
+<%@page import="java.sql.*" %>
+<%@page import="java.security.*" %>
+<%@page import="java.math.*" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="css/stylecp.css" rel="stylesheet" type="text/css"/>
+        <link href="css/forms.css" rel="stylesheet" type="text/css"/>
+        <link href="css/fonts.css" rel="stylesheet" type="text/css"/>
+        <title>Happy Pet - Cadastro</title>
+    </head>
+    <body>
+        <header>
+            <div id="cabecalho">
+                <div id="headerlogo">
+                    <div id="imgheader">
+                        <img src="image/logo_header.png">
+                    </div>
+                </div>
+            </div>
+        </header>        
+        <main>
+            <div id='registro' class='centralizar'>
+                <h2 id="title">Registro de usuário</h2><br><br>
+                <div id="registro2">
+                    <form action='register.jsp' id="registro2" class='formulario' method="post">
+                        <label class="rotulo">CPF</label>
+                        <input type="text" name='cpf' class="campo" required><br>
+
+                        <label class="rotulo" >Nome</label>
+                        <input type="text" name='nome'class="campo" style="width:300px;" required><br>
+
+                        <label class="rotulo">Endereço</label>
+                        <input type="text" name='endereco' class="campo" style="width:300px;" required ><br>
+
+                        <label class="rotulo">E-mail</label>
+                        <input type="text" name='email' class="campo" style="width:300px;" required ><br>
+
+                        <label class="rotulo">Telefone</label>
+                        <input type="text" name='fone' class="campo" style="width:300px;" required ><br>
+
+                        <label class="rotulo">Senha</label>
+                        <input type="password" name='senha' class="campo" style="width:300px;" required ><br>
+
+                        <input type="hidden" name="acao" value="valor"/>
+                        <input id="enviar" type="submit" name="enviar" value='Cadastrar'>
+                    </form>
+                    <%
+                        if (request.getParameter("acao") != null) {
+                            String cpf = request.getParameter("cpf");
+                            String nome = request.getParameter("nome");
+                            String endereco = request.getParameter("endereco");
+                            String email = request.getParameter("email");
+                            String fone = request.getParameter("fone");
+                            String senha = request.getParameter("senha");
+
+                            /* início da criptografia */
+                            MessageDigest md = MessageDigest.getInstance("MD5");
+                            BigInteger hash = new BigInteger(1, md.digest(senha.getBytes()));
+                            String senhaConvertida = String.format("%32x", hash);
+                            /* fim da criptografia */
+
+                            try{
+                                Class.forName("com.mysql.cj.jdbc.Driver");
+                                Connection con = DriverManager.getConnection("jdbc:mysql://localhost/happypet", "root", "12345678");
+                                Statement st = con.createStatement();
+                                st.executeUpdate("insert into dono values " + "('"+cpf+"','"+nome+"','"+endereco+"','"+email+"','"+fone+"', '"+senhaConvertida+"')");
+                                out.println("Seu cadastrado foi efetuado com sucesso!");
+                            }
+
+                            catch(ClassNotFoundException erroClass){
+                                out.println("Classe JDBC não encontrada. Erro: "+erroClass);
+                            }
+                            catch(SQLException erroSQL){
+                                out.println("Erro de conexão com o banco. Erro: "+erroSQL);
+                            }
+                        }
+                    %>
+
+                </div>
+                    <br><br><h5>Clique <a href="login.html">AQUI</a> para ir à página de login.</h5>
+            </div>
+        </main>
+        <footer>            
+            <div id="rodape">
+                <img src="image/title_contato.png">
+                <div id="logofooter">
+                    <div id="imgfooter">
+                        <img src="image/logo_footer.png">
+                    </div>
+                </div>
+                <div id="quicklist">
+                    <br>
+                    <h4>Atalhos rápidos</h4>
+                    <br>
+                    <ul>
+                        <li><a href="index.html#nossahome"><h5>Home  </h5></a></li><br>
+                        <li><a href="index.html#nossosservicos"><h5>Serviços  </h5></a></li><br>
+                        <li><a href="index.html#nossoblog"><h5>Blog  </h5></a></li><br>
+                        <li><a href="index.html#nossalocalizacao"><h5>Mapa  </h5></a></li><br>
+                        <li><a href="index.html#nossoscontatos"><h5>Contato  </h5></a></li><br>
+                        <li><a href="login.html"><h5>Login</h5></a></li><br>
+                    </ul>
+                </div>
+                <div id="contato">
+                    <br><h4>Nosso endereço e nosso Whatsapp:</h4><br>
+                    <h5>Rua Alecrim Dourado, 23</h5><br>
+                    <h3><img class="imgsns" src="image/whatsapp.png"> (31)3434-8686</h3> 
+                    <br>
+                    <div id="sns"><p>Nossas Redes sociais:</p><br>
+                        <a href=""><img class="imgsns" src="image/facebook.png"></a>    <a href=""><img class="imgsns" src="image/instagram.png"></a>    <a href=""><img class="imgsns" src="image/tik-tok.png"></a>    <a href=""><img class="imgsns" src="image/twitter.png"></a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>

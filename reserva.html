@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="css/stylecp.css" rel="stylesheet" type="text/css"/>
+        <link href="css/fonts.css" rel="stylesheet" type="text/css"/>
+        <link href="css/forms.css" rel="stylesheet" type="text/css"/>
+        <title>Happy Pet - Reserva de serviço</title>
+    </head>
+<body>
+    <header>
+        <div id="cabecalho">
+            <div id="headerlogo">
+                <div id="imgheader">
+                    <img src="image/logo_header.png" alt="Logo Happy Pet">
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div id="reserva">
+            <div id="reserva2"><br><br>
+                <h2 id="title">Reserva de Serviço</h2>
+
+                <form action="reserva.html" method="POST" id="form">
+                    <p>Cliente:</p>
+                    <h5 id="user" class="user"> Admin</h5>
+
+                    <p>Animal:</p>
+                    <select name="animal" id="animal">
+                        <option>Selecione.....</option>
+                        <option>Cachorro</option>
+                        <option>Gato</option>
+                    </select>
+
+                    <p>Serviço a realizar:</p>
+                    <select name="servico" id="servico">
+                        <option>Selecione.....</option>
+                        <option>Banho</option>
+                        <option>Tosa</option>
+                        <option>Banho + Tosa</option>
+                    </select>
+
+                    <p>Data:</p>
+                    <input type="date" name="dia" class="camp">
+
+                    <p>Horário:</p>
+                    <select name="horario" id="horario">
+                        <option>Selecione.....</option>
+                        <option>22/02/2024 - 15:30</option>
+                        <option>22/02/2024 - 16:30</option>
+                        <option>22/02/2024 - 17:30</option>
+                    </select>
+
+                    <input type="hidden" name="cpf" id="cpf" value="">
+                    <br><br>
+                    <input type="hidden" name="acao" value="valor"/>
+                    <input id="enviar" type="submit" name="enviar" value="Fazer a reserva"> 
+                </form>
+            </div><br><br><br><br>
+            <h5>Clique <a href="usercp.html">AQUI</a> para voltar à página anterior.</h5>
+        </div>
+    </main>
+    <footer>            
+        <div id="rodape">
+            <img src="image/title_contato.png" alt="Contato">
+            <div id="logofooter">
+                <div id="imgfooter">
+                    <img src="image/logo_footer.png" alt="Logo Happy Pet">
+                </div>
+            </div>
+            <div id="quicklist">
+                <br>
+                <h4>Atalhos rápidos</h4>
+                <br>
+                <ul>
+                    <li><a href="#nossahome"><h5>Home  </h5></a></li><br>
+                    <li><a href="#nossosservicos"><h5>Serviços  </h5></a></li><br>
+                    <li><a href="#nossoblog"><h5>Blog  </h5></a></li><br>
+                    <li><a href="#nossalocalizacao"><h5>Mapa  </h5></a></li><br>
+                    <li><a href="#nossoscontatos"><h5>Contato  </h5></a></li><br>
+                    <li><a href="login.html"><h5>Login</h5></a></li><br>
+                </ul>
+            </div>
+            <div id="contato">
+                <br><h4>Nosso endereço e nosso Whatsapp:</h4><br>
+                <h5>Rua Alecrim Dourado, 23</h5><br>
+                <h3><img class="imgsns" src="image/whatsapp.png" alt="WhatsApp"> (31)3434-8686</h3> 
+                <br>
+                <div id="sns"><p>Nossas Redes sociais:</p><br>
+                    <a href=""><img class="imgsns" src="image/facebook.png" alt="Facebook"></a>    <a href=""><img class="imgsns" src="image/instagram.png" alt="Instagram"></a>    <a href=""><img class="imgsns" src="image/tik-tok.png" alt="TikTok"></a>    <a href=""><img class="imgsns" src="image/twitter.png" alt="Twitter"></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

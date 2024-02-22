@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/stylecp.css">
+    <link rel="stylesheet" href="css/forms.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <title>Happy Pet - Atualização de Dados</title>
+</head>
+<body>
+    <header>
+        <div id="cabecalho">
+            <div id="headerlogo">
+                <div id="imgheader">
+                    <img src="image/logo_header.png" alt="Logo">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div id="atualiza">
+            <h1>Atualização de dados</h1>
+            <br><br>
+            <div id="atualiza2">
+                <br><br><br>
+
+                <label class='rotulo'> Usuário: </label>
+
+                <script>
+                    try {
+                        var userLogado = 'Administrador';
+
+                        if (userLogado != null) {
+                            document.write("<h5 class='user'>" + userLogado + "</h5>");
+                        } else {
+                            window.location.href = "login.html";
+                        }
+
+                        var cpf = '<%= userLogado %>';
+                        var formAction = 'updated.html';
+
+                        document.write("<br><form action='" + formAction + "' method='post'>");
+
+                        // Assuming you have the data from the server in JavaScript variables
+                        var nomeDono = 'John Doe'; // Replace with actual data
+                        var endereco = '123 Main St'; // Replace with actual data
+                        var emailDono = 'john.doe@example.com'; // Replace with actual data
+                        var foneDono = '555-1234'; // Replace with actual data
+
+                        document.write("<br><label class='rotulo'> Nome: </label>");
+                        document.write("<input type='text' name='nome' class='campo' value='" + nomeDono + "' size=50 /><br>");
+
+                        document.write("<label class='rotulo'> Endereço: </label>");
+                        document.write("<input type='text' name='endereco' class='campo' value='" + endereco + "' size=50 /><br>");
+
+                        document.write("<label class='rotulo'> Email: </label>");
+                        document.write("<input type='text' name='email' class='campo' value='" + emailDono + "' size=50 /><br>");
+
+                        document.write("<label class='rotulo'> Telefone: </label>");
+                        document.write("<input type='text' name='telefone' class='campo' value='" + foneDono + "' size=50 /><br>");
+
+                        document.write("<input type='hidden' name='cpf' value='" + cpf + "' />");
+                        document.write("<input type='hidden' name='acao' value='valor' />");
+                        document.write("<br><br>");
+
+                        document.write("<br><input id='enviar' type='submit' name='enviar' value='ATUALIZAR'>");
+                        document.write("</form>");
+
+                    } catch (error) {
+                        console.error("Error: " + error);
+                    }
+                </script>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div id="rodape">
+            <img src="image/title_contato.png" alt="Contato">
+            <div id="logofooter">
+                <div id="imgfooter">
+                    <img src="image/logo_footer.png" alt="Footer Logo">
+                </div>
+            </div>
+            <div id="quicklist">
+                <br>
+                <h4>Atalhos rápidos</h4>
+                <br>
+                <ul>
+                    <li><a href="index.html#nossahome"><h5>Home  </h5></a></li><br>
+                    <li><a href="index.html#nossosservicos"><h5>Serviços  </h5></a></li><br>
+                    <li><a href="index.html#nossoblog"><h5>Blog  </h5></a></li><br>
+                    <li><a href="index.html#nossalocalizacao"><h5>Mapa  </h5></a></li><br>
+                    <li><a href="index.html#nossoscontatos"><h5>Contato  </h5></a></li><br>
+                    <li><a href="login.html"><h5>Login</h5></a></li><br>
+                </ul>
+            </div>
+            <div id="contato">
+                <br><h4>Nosso endereço e nosso Whatsapp:</h4><br>
+                <h5>Rua Alecrim Dourado, 23</h5><br>
+                <h3><img class="imgsns" src="image/whatsapp.png" alt="Whatsapp"> (31)3434-8686</h3>
+                <br>
+                <div id="sns"><p>Nossas Redes sociais:</p><br>
+                    <a href=""><img class="imgsns" src="image/facebook.png" alt="Facebook"></a>
+                    <a href=""><img class="imgsns" src="image/instagram.png" alt="Instagram"></a>
+                    <a href=""><img class="imgsns" src="image/tik-tok.png" alt="TikTok"></a>
+                    <a href=""><img class="imgsns" src="image/twitter.png" alt="Twitter"></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/stylecp.css">
+    <link rel="stylesheet" href="css/forms.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <title>Happy Pet - Alteração realizada</title>
+</head>
+<body>
+    <header>
+        <div id="cabecalho">
+            <div id="headerlogo">
+                <div id="imgheader">
+                    <img src="image/logo_header.png" alt="Logo">
+                </div>
+            </div>
+        </div>
+    </header>        
+
+    <main>
+        <div id="conteudo">
+            <div id="conteudo2">
+                <br><br><br><br>
+                <a href="usercp.html"><img src="image/alterado_com_sucesso.png" alt="Alterado com sucesso"></a>
+                <br><br><br><br>
+                
+                <script>
+                    var nomeDono1 = '<%= request.getParameter("nome") %>';
+                    var cpf1 = '<%= request.getParameter("cpf") %>';
+                    var endereco1 = '<%= request.getParameter("endereco") %>';
+                    var emailDono1 = '<%= request.getParameter("email") %>';
+                    var foneDono1 = '<%= request.getParameter("telefone4") %>';
+
+                    try {
+                        // Connect to the database
+                        Class.forName("com.mysql.cj.jdbc.Driver");
+                        var con = DriverManager.getConnection("jdbc:mysql://localhost/happypet", "root", "12345678");
+                        var st = con.createStatement();
+
+                        // Update the database record
+                        st.executeUpdate("update dono set nomeDono = '" + nomeDono1 + "', endereco = '" + endereco1 + "', emailDono ='" + emailDono1 + "' where cpf = '" + cpf1 + "'");
+
+                    } catch (error) {
+                        console.error("Error: " + error);
+                    }
+                </script>
+
+                <br><br><br><br>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div id="rodape">
+            <img src="image/title_contato.png" alt="Contato">
+            <div id="logofooter">
+                <div id="imgfooter">
+                    <img src="image/logo_footer.png" alt="Footer Logo">
+                </div>
+            </div>
+            <div id="quicklist">
+                <br>
+                <h4>Atalhos rápidos</h4>
+                <br>
+                <ul>
+                    <li><a href="index.html#nossahome"><h5>Home  </h5></a></li><br>
+                    <li><a href="index.html#nossosservicos"><h5>Serviços  </h5></a></li><br>
+                    <li><a href="index.html#nossoblog"><h5>Blog  </h5></a></li><br>
+                    <li><a href="index.html#nossalocalizacao"><h5>Mapa  </h5></a></li><br>
+                    <li><a href="index.html#nossoscontatos"><h5>Contato  </h5></a></li><br>
+                    <li><a href="login.html"><h5>Login</h5></a></li><br>
+                </ul>
+            </div>
+            <div id="contato">
+                <br><h4>Nosso endereço e nosso Whatsapp:</h4><br>
+                <h5>Rua Alecrim Dourado, 23</h5><br>
+                <h3><img class="imgsns" src="image/whatsapp.png" alt="Whatsapp"> (31)3434-8686</h3>
+                <br>
+                <div id="sns"><p>Nossas Redes sociais:</p><br>
+                    <a href=""><img class="imgsns" src="image/facebook.png" alt="Facebook"></a>
+                    <a href=""><img class="imgsns" src="image/instagram.png" alt="Instagram"></a>
+                    <a href=""><img class="imgsns" src="image/tik-tok.png" alt="TikTok"></a>
+                    <a href=""><img class="imgsns" src="image/twitter.png" alt="Twitter"></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

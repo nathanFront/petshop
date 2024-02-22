@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR"">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/stylecp.css">
+    <link rel="stylesheet" href="css/forms.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <title>Happy Pet - Cadastro de Pet</title>
+</head>
+<body>
+    <header>
+        <div id="cabecalho">
+            <div id="headerlogo">
+                <div id="imgheader">
+                    <img src="image/logo_header.png" alt="Logo">
+                </div>
+            </div>
+        </div>
+    </header>        
+
+    <main>
+        <div id='registro'>
+            <h2 id="title">Cadastro de animal</h2>
+            <div id="registro2"><br>
+                <form action='animal.html' id="registro2" class='formulario' method="post">
+                    <label class="rotulo">Usuario</label>
+                    <script>
+                        var userLogado = 'Administrador';
+
+                        if (userLogado != null) {
+                            document.write("<h5 class='user'>" + userLogado + "</h5>");
+                        } else {
+                            window.location.href = "login.html";
+                        }
+                    </script>
+
+                    <br>
+                    <label class="rotulo" >Nome do animal</label>
+                    <input type="text" name='nomeAnimal' class="campo" style="width:300px;"><br>
+
+                    <label class="rotulo">Raça do Animal</label>
+                    <input type="text" name='racaAnimal' class="campo" style="width:300px;"><br>
+
+                    <label class="rotulo">Data de nascimento do animal</label>
+                    <input type="date" name='nascAnimal' class="campo" style="width:300px;"><br>
+
+                    <label class="rotulo">Espécie</label>
+                    <select name="especie" class="campo">
+                        <option value="">Escolher</option>
+                        <option value="1">Cachorro</option>
+                        <option value="2">Gato</option>
+                        <option value="3">Outros</option>
+                    </select>
+
+                    <input type="hidden" name="acao" value="valor"/>
+                    <input id="enviar" type="submit" name="enviar" value='Cadastrar'>
+                </form>
+
+                <script>
+                    if ('<%= request.getParameter("acao") %>' !== null) {
+                        var cpf = '<%= userLogado %>';
+                        var nomeAnimal = '<%= request.getParameter("nomeAnimal") %>';
+                        var racaAnimal = '<%= request.getParameter("racaAnimal") %>';
+                        var nascAnimal = '<%= request.getParameter("nascAnimal") %>';
+                        var especie = '<%= request.getParameter("especie") %>';
+
+                        try {
+                            // Connect to the database
+                            Class.forName("com.mysql.cj.jdbc.Driver");
+                            var con = DriverManager.getConnection("jdbc:mysql://localhost/happypet", "root", "12345678");
+                            var st = con.createStatement();
+
+                            // Insert into the database
+                            st.executeUpdate("insert into animal values ('" + cpf + "',null,'" + nomeAnimal + "','" + racaAnimal + "','" + nascAnimal + "','" + especie + "')");
+
+                            document.write("Seu animalzinho foi cadastrado com sucesso!");
+                        } catch (error) {
+                            console.error("Error: " + error);
+                        }
+                    }
+                </script>
+            </div>
+            <br><br><br><br>
+            <h5>Clique <a href="usercp.html">AQUI</a> para voltar à página anterior.</h5>
+        </div>
+    </main>
+
+    <footer>
+        <div id="rodape">
+            <img src="image/title_contato.png" alt="Contato">
+            <div id="logofooter">
+                <div id="imgfooter">
+                    <img src="image/logo_footer.png" alt="Footer Logo">
+                </div>
+            </div>
+            <div id="quicklist">
+                <br>
+                <h4>Atalhos rápidos</h4>
+                <br>
+                <ul>
+                    <li><a href="index.html#nossahome"><h5>Home  </h5></a></li><br>
+                    <li><a href="index.html#nossosservicos"><h5>Serviços  </h5></a></li><br>
+                    <li><a href="index.html#nossoblog"><h5>Blog  </h5></a></li><br>
+                    <li><a href="index.html#nossalocalizacao"><h5>Mapa  </h5></a></li><br>
+                    <li><a href="index.html#nossoscontatos"><h5>Contato  </h5></a></li><br>
+                    <li><a href="login.html"><h5>Login</h5></a></li><br>
+                </ul>
+            </div>
+            <div id="contato">
+                <br><br>
+                <h4>Rua Alecrim Dourado, 23</h4><br>
+                <h3><img class="imgsns" src="image/whatsapp.png"> (31)3434-8686</h3> 
+                <br>
+                <div id="sns"><p>Nossas Redes sociais:</p>
+                    <a href=""><img class="imgsns" src="image/facebook.png"></a>  <a href=""><img class="imgsns" src="image/instagram.png"></a>  <a href=""><img class="imgsns" src="image/tik-tok.png"></a>  <a href=""><img class="imgsns" src="image/twitter.png"></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

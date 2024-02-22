@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link href="css/stylecp.css" rel="stylesheet" type="text/css" />
+    <link href="css/forms.css" rel="stylesheet" type="text/css" />
+    <link href="css/fonts.css" rel="stylesheet" type="text/css" />
+    <title>Happy Pet - Login</title>
+</head>
+
+<body>
+    <header>
+        <div id="cabecalho">
+            <div id="headerlogo">
+                <div id="imgheader">
+                    <img src="image/logo_header.png">
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div id="conteudologin">
+            <h1>Login</h1>
+            <br><br>
+            <form id="formulario">
+                <label class="rotulo">Usuário</label>
+                <input type="text" id="cpf" name="cpf" class="campo">
+                <br>
+                <label class="rotulo">Senha</label>
+                <input type="password" id="senha" name="senha" class="campo">
+                <br><br>
+                <input type="hidden" name="acao">
+                <button id="enviar" type="button" name="enviar" onclick="login()"> Entrar </button>
+                <br><br><br>
+                <h5>Se você ainda não possuir cadastro, <a href="register.html" target="_blank">CLIQUE AQUI</a></h5>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <div id="rodape">
+            <img src="image/title_contato.png">
+            <div id="logofooter">
+                <div id="imgfooter">
+                    <img src="image/logo_footer.png">
+                </div>
+            </div>
+            <div id="quicklist">
+                <br>
+                <h4>Atalhos rápidos</h4>
+                <br>
+                <ul>
+                    <li><a href="index.html#nossahome">
+                            <h5>Home </h5>
+                        </a></li><br>
+                    <li><a href="index.html#nossosservicos">
+                            <h5>Serviços </h5>
+                        </a></li><br>
+                    <li><a href="index.html#nossoblog">
+                            <h5>Blog </h5>
+                        </a></li><br>
+                    <li><a href="index.html#nossalocalizacao">
+                            <h5>Mapa </h5>
+                        </a></li><br>
+                    <li><a href="index.html#nossoscontatos">
+                            <h5>Contato </h5>
+                        </a></li><br>
+                    <li><a href="login.html">
+                            <h5>Login</h5>
+                        </a></li><br>
+                </ul>
+            </div>
+            <div id="contato">
+                <br>
+                <h4>Nosso endereço e nosso Whatsapp:</h4><br>
+                <h5>Rua Alecrim Dourado, 23</h5><br>
+                <h3><img class="imgsns" src="image/whatsapp.png"> (31)3434-8686</h3>
+                <br>
+                <div id="sns">
+                    <p>Nossas Redes sociais:</p><br>
+                    <a href=""><img class="imgsns" src="image/facebook.png"></a> <a href=""><img class="imgsns"
+                            src="image/instagram.png"></a> <a href=""><img class="imgsns" src="image/tik-tok.png"></a>
+                    <a href=""><img class="imgsns" src="image/twitter.png"></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function login() {
+            var cpfInput = document.getElementById('cpf').value; // Obtém o valor do campo CPF
+            var senhaInput = document.getElementById('senha').value; // Obtém o valor do campo senha
+
+            var cpfCorreto = "admin";
+            var senhaCorreta = "admin";
+
+            if (cpfInput === cpfCorreto && senhaInput === senhaCorreta) {
+                window.location.href = 'reserva.html'; // Redireciona para a página de reserva
+            } else {
+                alert('Usuário ou senha inválidos');
+            }
+        }
+
+    </script>
+    <script src="script.js"></script>
+</body>
+
+</html>

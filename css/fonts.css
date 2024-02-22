@@ -1,0 +1,55 @@
+/* zerando o arquivo */
+*{
+    margin: 0;
+    padding: 0;
+    background-color: #fff7ea;
+}
+
+/* configurações de fonte */
+body{
+    font-family: "Verdana";
+    color: #966a43;
+}
+
+h1{
+    background-color: transparent;
+}
+#rodape h4{
+    background-color: transparent;
+}
+
+#rodape h5{
+    background-color: transparent;
+}
+
+h3{
+    background-color: transparent;
+}
+p{
+    background-color: transparent;
+}
+#menu h4{
+    background-color: #ffcf85;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+#sns{
+    background-color: transparent;
+}
+.imgsns{
+    background-color: transparent;
+}
+
+#quicklist a{
+    background-color: #ffcf85;
+}
+
+
+/*--------------------------*/
+/* configurações de header */
+/* configurações de header */
+/* configurações de header */
+/* configurações de header */
+/* configurações de header */
+/* configurações de header */
+/* configurações de header */
